@@ -1,0 +1,61 @@
+<div class="contact-container">
+    <div class="main-content">
+        <header class="header-logo">
+            <h1 class="company-name">NovaBank</h1>
+            <p class="company-tagline">Votre confiance, notre priorité.</p>
+        </header>
+
+        <div class="contact-section">
+            <h2 class="contact-title">Assistant Crédits Bancaires</h2>
+            <p class="contact-intro">Bonjour ! Je vous aide à comprendre tous les types de crédits selon la Banque Centrale Tunisienne.</p>
+
+            <div class="chatbot-container">
+                <div class="chat-messages" #chatMessages>
+                    <div class="message bot-message">
+                        <p> Bienvenue ! Je suis votre assistant crédits bancaires. Vous pouvez me demander :</p>
+                        <ul>
+                            <li>Les types de crédits disponibles</li>
+                            <li>Les détails d'un crédit (par code ou nom)</li>
+                            <li>Les conditions selon la BCT</li>
+                            <li>Les taux, durées et montants</li>
+                            <li>Les documents requis</li>
+                        </ul>
+                    </div>
+                    <div *ngFor="let msg of messages" [ngClass]="{'user-message': msg.sender === 'user', 'bot-message': msg.sender === 'bot'}" class="message">
+                        <p>{{ msg.text }}</p>
+                    </div>
+                </div>
+
+                <div class="chat-input-area">
+                    <div class="quick-buttons">
+                        <button type="button" (click)="sendQuickMessage('Quels types de crédits ?')" class="quick-btn">Types de crédits</button>
+                        <button type="button" (click)="sendQuickMessage('Conditions BCT')" class="quick-btn">Conditions BCT</button>
+                        <button type="button" (click)="sendQuickMessage('Crédit 1265')" class="quick-btn">Logement </button>
+                        <button type="button" (click)="sendQuickMessage('Crédit 1258')" class="quick-btn">Voiture</button>
+                    </div>
+                    <div class="input-group">
+                        <input
+                            type="text"
+                            [(ngModel)]="userInput"
+                            (keyup.enter)="sendMessage()"
+                            placeholder="Posez votre question sur les crédits..."
+                            class="chat-input">
+                        <button type="button" (click)="sendMessage()" class="send-btn">Envoyer</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="sidebar">
+        <nav class="main-nav">
+            <ul class="nav-list">
+                <li class="nav-item"><a routerLink="/accueil" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="nav-link">Accueil</a></li>
+                <li class="nav-item"><a routerLink="/espace-client" routerLinkActive="active" class="nav-link">Espace client</a></li>
+                <li class="nav-item"><a routerLink="/utilisateur-de-banque" routerLinkActive="active" class="nav-link">Utilisateurs de banque</a></li>
+                <li class="nav-item"><a routerLink="/nos-services" routerLinkActive="active" class="nav-link">Services</a></li>
+                <li class="nav-item"><a routerLink="/contact-us" routerLinkActive="active" class="nav-link">Contact Us</a></li>
+            </ul>
+        </nav>
+    </div>
+</div>

@@ -1,0 +1,58 @@
+<!-- ===== Barre Profil ===== -->
+<div class="profile-bar">
+  <div class="profile-info">
+    <strong>{{ currentUser?.nom }} {{ currentUser?.prenom }}</strong>
+    <span class="role">({{ currentUser?.typePersonnel }})</span>
+  </div>
+
+  <button class="logout-btn" (click)="logout()">Déconnexion</button>
+</div>
+
+<hr />
+
+<!-- ===== Titre ===== -->
+<h2>Liste des demandes de crédit</h2>
+
+<!-- ===== Si aucune demande ===== -->
+<div *ngIf="demandesList.length === 0" class="empty">
+  Aucune demande trouvée.
+</div>
+
+<table class="demande-table" *ngIf="demandesList.length > 0">
+  <thead>
+    <tr>
+      <th>Montant</th>
+      <th>Type Crédit</th>
+      <th>Statut</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr *ngFor="let demande of demandesList">
+      <td>{{ demande.montant }} Dt</td>
+      <td>{{ demande.typeCredit }}</td>
+      <td>{{ demande.statutCredit }}</td>
+
+      <td>
+        <button
+          *ngIf="demande.statutCredit === 'EN_ATTENTE'"
+          (click)="approuverDemande(demande.id)"
+          class="btn-approve">
+          Approuver
+        </button>
+
+        <button
+          *ngIf="demande.statutCredit === 'EN_ATTENTE'"
+          (click)="refuserDemande(demande.id)"
+          class="btn-refuse">
+          Refuser
+        </button>
+
+        <span *ngIf="demande.statutCredit !== 'EN_ATTENTE'">
+          {{ demande.statutCredit }}
+        </span>
+      </td>
+    </tr>
+  </tbody>
+</table>

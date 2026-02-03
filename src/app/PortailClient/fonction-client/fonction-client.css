@@ -1,0 +1,131 @@
+/* ================== PORTAIL CLIENT ================== */
+.portail-client {
+  background: linear-gradient(to right, #f7f3f0, #e2ebf0); /* beige clair + dégradé doux */
+  min-height: 100vh;
+  padding-bottom: 40px;
+}
+
+/* ===== Barre profil ===== */
+.profile-bar {
+  background: #2c475b; /* bleu foncé harmonisé */
+  color: white;
+  padding: 20px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 0 0 20px 20px;
+}
+
+.profile-actions button {
+  margin-left: 10px;
+  padding: 10px 15px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.profile-actions button.logout-btn {
+  background: #e53935; /* rouge/rougeâtre comme précédemment */
+}
+.profile-actions button.logout-btn:hover {
+  background: #c62828;
+}
+.profile-actions button.edit-btn {
+  background: #1e3a8a; /* bleu secondaire */
+}
+.profile-actions button.edit-btn:hover {
+  background: #2c475b;
+}
+
+/* ===== Conteneur principal ===== */
+.container {
+  margin: 40px auto;
+  max-width: 900px;
+  background: #f7f3f0; /* beige clair */
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+}
+
+/* ===== Formulaire rendez-vous ===== */
+.appointment-form input,
+.appointment-form textarea {
+  width: 100%;
+  padding: 14px 15px;
+  margin: 10px 0;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+  box-sizing: border-box;
+  font-size: 1em;
+  transition: all 0.3s ease;
+}
+.appointment-form input:focus,
+.appointment-form textarea:focus {
+  border-color: #1e3a8a;
+  box-shadow: 0 0 6px rgba(30,58,138,0.3);
+  background-color: #fff;
+}
+
+.appointment-form button {
+  width: 100%;
+  background: linear-gradient(135deg, #1e3a8a, #2c475b); /* bleu harmonisé */
+  color: white;
+  padding: 14px;
+  border-radius: 12px;
+  border: none;
+  font-size: 1.05em;
+  cursor: pointer;
+  margin-top: 12px;
+  transition: all 0.3s ease;
+}
+.appointment-form button:hover {
+  background: linear-gradient(135deg, #2c475b, #1e3a8a);
+}
+.appointment-form button:disabled {
+  background: #a9a9a9;
+  cursor: not-allowed;
+}
+
+/* ===== Tableau rendez-vous ===== */
+.appointments-section table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.appointments-section th,
+.appointments-section td {
+  padding: 12px;
+  border-bottom: 1px solid #ccc;
+  text-align: center;
+}
+.appointments-section th {
+  background-color: #f5f5f5;
+  font-weight: bold;
+}
+
+
+/* Bouton */button{
+background: linear-gradient(135deg, #1e3a8a, #2c475b); /* bleu harmonisé */
+  color: white;
+  padding: 13px 20px;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  width: 100%;
+  font-size: 1.05em;
+  font-weight: 600;
+  margin-top: 12px;
+  margin-bottom: 10px;
+  transition: all 0.3s ease;
+}
+
+ button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+  background: linear-gradient(135deg, #2c475b, #1e3a8a); /* léger inverse du dégradé */
+}
+
+button:disabled {
+  background: #a9a9a9;
+  cursor: not-allowed;
+  box-shadow: none;
+}

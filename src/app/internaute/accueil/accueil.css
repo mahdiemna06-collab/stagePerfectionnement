@@ -1,0 +1,99 @@
+/* 1. Mise en page principale (Grid ou Flexbox) */
+.accueil-container {
+    display: flex; /* Utiliser Flexbox pour les deux colonnes */
+    min-height: 100vh; /* S'assurer que le conteneur prend toute la hauteur de la fenêtre */
+    width: 100%;
+}
+
+/* Colonne de Gauche (Principale) */
+.main-content {
+    flex: 1; /* Prend l'espace restant */
+    background-color: #f7f3f0; /* Couleur très claire / beige */
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Colonne de Droite (Menu de Navigation) */
+.sidebar {
+    width: 300px; /* Taille fixe, ajustez au besoin */
+    background-color: #2c475b; /* Couleur bleu foncé/ardoise */
+    color: #ffffff;
+    padding-top: 50px;
+}
+
+/* 2. Style du Logo */
+.header-logo {
+    text-align: center;
+    margin-bottom: 60px;
+}
+.logo-image {
+    width: 80px; /* Ajustez la taille du logo */
+    height: auto;
+}
+.company-name {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #4a4a4a;
+    margin: 5px 0 2px 0;
+}
+.company-tagline {
+    font-size: 0.8em;
+    color: #a0522d; /* Couleur marron/rougeâtre pour le tag */
+    letter-spacing: 3px;
+    margin: 0;
+}
+
+/* 3. Style de l'Image Incurvée */
+.image-section {
+    width: 100%;
+    max-width: 500px; /* Limite la largeur de la section image */
+    padding: 20px;
+}
+
+.image-wrapper {
+    /* Clé pour l'effet de l'arrondi en bas à gauche */
+    overflow: hidden;
+    border-radius: 0 50px 0 50px; /* Haut-Gauche, Haut-Droite, Bas-Droite, Bas-Gauche */
+    /* Utilisez 50% ou une valeur plus élevée si vous voulez un arrondi plus prononcé */
+}
+
+.banking-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    /* Assurez-vous que l'image elle-même n'est pas distordue */
+}
+
+/* 4. Style de la Navigation */
+.nav-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.nav-item {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2); /* Ligne de séparation */
+}
+
+.nav-link {
+    display: block;
+    padding: 15px 30px;
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 1.1em;
+    transition: background-color 0.3s;
+}
+
+.nav-link:hover {
+    background-color: rgba(255, 255, 255, 0.1); /* Effet au survol */
+}
+
+.nav-link.active {
+    font-weight: bold;
+    color: white;
+}
+.center-content{
+  padding-top:300px ;
+}

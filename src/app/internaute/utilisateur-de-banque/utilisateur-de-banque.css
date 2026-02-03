@@ -1,0 +1,124 @@
+.bank-user-section {
+  /* Palette principale */
+  background-color: #f7f3f0; /* beige demandé */
+  padding: 40px 20px 80px;
+}
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+.section-title {
+  text-align: center;
+  color: #2D475B; /* bleu foncé principal */
+  font-size: 1.8rem;
+  margin-bottom: 26px;
+  font-weight: 700;
+}
+
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 22px;
+  align-items: stretch;
+}
+
+.user-card {
+  background: linear-gradient(180deg, #ffffff 0%, #fffaf7 100%);
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 8px 18px rgba(45,71,91,0.10);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  transition: transform 260ms cubic-bezier(.2,.9,.3,1), box-shadow 260ms ease, border-color 260ms ease;
+  border: 1px solid rgba(45,71,91,0.03);
+  position: relative;
+  overflow: hidden;
+}
+.user-card .icon {
+  width: 64px;
+  height: 64px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  margin-bottom: 14px;
+  background: linear-gradient(135deg, rgba(45,71,91,0.08), rgba(63,94,122,0.06));
+  color: #2D475B;
+}
+.user-card h3 {
+  color: #2D475B;
+  margin: 0 0 8px 0;
+  font-size: 1.05rem;
+}
+.user-card .desc {
+  color: #5e6b72;
+  font-size: 0.95rem;
+  margin-bottom: 18px;
+  flex: 1 1 auto;
+}
+.card-btn {
+  align-self: stretch;
+  padding: 12px 14px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 0.98rem;
+  transition: transform 180ms ease, box-shadow 180ms ease, background-color 180ms ease;
+  background-color: #45a049; /* bouton vert principal */
+  color: #ffffff;
+}
+
+/* Specific styles per card (accents marron / bleu) */
+
+/* Accents par carte avec palette demandée */
+.card-1 .icon { background: linear-gradient(90deg, rgba(160,82,45,0.12), rgba(160,82,45,0.06)); color: #A0522D; }
+.card-1 { border-top: 4px solid rgba(160,82,45,0.18); }
+
+.card-2 .icon { background: linear-gradient(90deg, rgba(45,71,91,0.12), rgba(63,94,122,0.06)); color: #2D475B; }
+.card-2 { border-top: 4px solid rgba(63,94,122,0.16); }
+
+.card-3 .icon { background: linear-gradient(90deg, rgba(45,71,91,0.10), rgba(63,94,122,0.06)); color: #2D475B; }
+.card-3 { border-top: 4px solid rgba(45,71,91,0.12); }
+
+.card-4 .icon { background: linear-gradient(90deg, rgba(160,82,45,0.12), rgba(160,82,45,0.06)); color: #A0522D; }
+.card-4 { border-top: 4px solid rgba(160,82,45,0.18); }
+
+/* Les boutons gardent la couleur verte (#45a049), mais on peut ajouter une variante marron pour certaines cartes si nécessaire */
+.card-1 .card-btn, .card-4 .card-btn { background-color: #45a049; }
+.card-2 .card-btn, .card-3 .card-btn { background-color: #45a049; }
+.card-btn:hover { background-color: #3e9a44; }
+
+/* Hover animations */
+.user-card:hover {
+  transform: translateY(-8px) scale(1.01);
+  box-shadow: 0 20px 40px rgba(45,71,91,0.18);
+  border-color: rgba(45,71,91,0.08);
+}
+.user-card:hover .icon { transform: translateY(-4px) scale(1.04); }
+.card-btn:hover { transform: translateY(-3px); box-shadow: 0 8px 18px rgba(0,0,0,0.08); }
+
+/* Subtle decorative diagonal accent */
+.user-card::after {
+  content: '';
+  position: absolute;
+  right: -40px;
+  top: -40px;
+  width: 160px;
+  height: 160px;
+  background: linear-gradient(135deg, rgba(160,82,45,0.06), rgba(63,94,122,0.04));
+  transform: rotate(15deg);
+  border-radius: 24px;
+  pointer-events: none;
+}
+
+/* Responsive: 2 columns then 1 */
+@media (max-width: 920px) {
+  .cards-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 560px) {
+  .cards-grid { grid-template-columns: 1fr; }
+  .bank-user-section { padding: 24px 12px 40px; }
+}

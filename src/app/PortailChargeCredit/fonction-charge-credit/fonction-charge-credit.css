@@ -1,0 +1,96 @@
+/* ===== Barre Profil ===== */
+.profile-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #2c475b;   /* bleu foncé comme sidebar */
+  color: #ffffff;
+  padding: 14px 24px;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.profile-info {
+  font-size: 16px;
+}
+
+.role {
+  font-size: 13px;
+  color: #f7f3f0;
+  margin-left: 6px;
+  opacity: 0.9;
+}
+
+/* ===== Bouton logout ===== */
+.logout-btn {
+  background-color: #a0522d;   /* marron accent */
+  border: none;
+  color: #ffffff;
+  padding: 8px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.logout-btn:hover {
+  background-color: #8b4513;
+}
+
+/* ===== Tableau ===== */
+.demande-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 25px;
+  background-color: #ffffff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+}
+
+.demande-table th,
+.demande-table td {
+  padding: 10px;
+  text-align: center;
+  border-bottom: 1px solid #eee;
+}
+
+.demande-table th {
+  background-color: #f7f3f0;
+  color: #2c475b;
+  font-weight: bold;
+}
+
+/* ===== Boutons action ===== */
+.approve-btn {
+  background-color: #2c475b;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-right: 6px;
+}
+
+.approve-btn:hover {
+  background-color: #1f3545;
+}
+
+.refuse-btn {
+  background-color: #a0522d;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.refuse-btn:hover {
+  background-color: #8b4513;
+}
+
+/* ===== Message vide ===== */
+.empty {
+  margin-top: 20px;
+  font-style: italic;
+  color: #4a4a4a;
+}

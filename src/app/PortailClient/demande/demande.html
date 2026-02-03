@@ -1,0 +1,50 @@
+<div class="demandes-container">
+  <h2>Mes demandes de crédit</h2>
+
+  <!-- Formulaire création -->
+  <div class="form-container">
+    <input type="number"
+           [(ngModel)]="nouvelleDemande.montant"
+           placeholder="Montant" />
+
+    <select [(ngModel)]="nouvelleDemande.typeCredit">
+      <option value="CREDIT_DEPENSES_COURANTES">Dépenses courantes</option>
+      <option value="CREDIT_AMENAGEMENT">Aménagement</option>
+      <option value="CREDIT_ACQUISITION_VEHICULE">Acquisition véhicule</option>
+      <option value="CREDIT_AMENAGEMENT_LOGEMENT_HYPOTHECAIRE">Aménagement logement</option>
+      <option value="CREDIT_ACQUISITION_LOGEMENT">Acquisition logement</option>
+      <option value="CREDIT_CONSTRUCTION">Construction</option>
+      <option value="CREDIT_ACHAT_TERRAIN">Achat terrain</option>
+    </select>
+
+    <button (click)="createDemande()">Créer la demande</button>
+  </div>
+
+  <p *ngIf="loading">Chargement...</p>
+  <p class="error" *ngIf="errorMsg">{{ errorMsg }}</p>
+
+  <table *ngIf="demandes.length > 0">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Montant</th>
+        <th>Type</th>
+        <th>Statut</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let demande of demandes">
+        <td>{{ demande.id }}</td>
+        <td>{{ demande.montant }}</td>
+        <td>{{ demande.typeCredit }}</td>
+        <td>{{ demande.statutCredit }}</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p *ngIf="!loading && demandes.length === 0">
+    Aucune demande trouvée.
+  </p>
+</div>
+
+<button class="btn-cancel" (click)="retour()">Retour</button>

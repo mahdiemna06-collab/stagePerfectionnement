@@ -1,0 +1,38 @@
+/* Conteneur principal de la navigation (<ul>) */
+ul {
+    list-style-type: none; /* Enlève les puces de liste */
+    margin: 0;
+    padding: 0;
+    overflow: hidden; /* Pour gérer le flottement des éléments */
+    display: flex; /* Utilise Flexbox pour aligner horizontalement */
+    justify-content: flex-start; /* Aligner les liens à gauche */
+    background-color: #ffffff; /* Fond blanc (ou transparent si le parent a une couleur) */
+    font-family: sans-serif;
+    padding-left: 20px; /* Petit espacement à gauche pour le logo/handshake */
+}
+
+/* Chaque élément de navigation (<li>) */
+/* Supprimé car vide */
+
+/* Les liens (<a>) à l'intérieur de la liste */
+li a,.x {
+    display: block; /* Prend tout l'espace du <li> */
+    color: #444; /* Couleur de texte gris foncé */
+    text-align: center;
+    padding: 14px 16px; /* Espacement autour du texte du lien */
+    text-decoration: none; /* Enlève le soulignement */
+    font-size: 0.95em;
+    white-space: nowrap; /* Empêche le texte de passer à la ligne */
+    font-weight: normal;
+}
+
+/* Style au survol ou pour le lien actif */
+li a:hover:not(.active) {
+    color: #a0522d; /* Couleur marron/rougeâtre de la marque au survol */
+}
+
+/* Style pour le lien actif (si nécessaire, bien que peu visible dans les maquettes) */
+li a.active {
+    font-weight: bold;
+    color: #4682B4; /* Bleu gris */
+}
