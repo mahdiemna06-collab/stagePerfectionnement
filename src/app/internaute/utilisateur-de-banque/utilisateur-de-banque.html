@@ -1,24 +1,47 @@
-<app-dashboard-internaute></app-dashboard-internaute>
+<div class="client-area-container">
 
-<section class="bank-user-section">
-	<div class="container">
-		<h2 class="section-title">Espace utilisateurs de la banque</h2>
+  <!-- SIDEBAR -->
 
-		<div class="cards-grid">
-			<article class="user-card card-1">
-				<div class="icon">👩‍💼</div>
-				<h3>Chargé·e Client</h3>
-				<p class="desc">Accédez à l'interface des chargés de clientèle pour gérer les rendez-vous.</p>
-				<button class="card-btn" (click)="navigateToChargeClient()">Se connecter</button>
-			</article>
+  <div class="sidebar">
+    <nav class="main-nav">
+      <ul class="nav-list">
+        <li class="nav-item"><a routerLink="/accueil" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="nav-link">Accueil</a></li>
+        <li class="nav-item"><a routerLink="/espace-client" routerLinkActive="active" class="nav-link">Espace client</a></li>
+        <li class="nav-item"><a routerLink="/utilisateur-de-banque" routerLinkActive="active" class="nav-link">Utilisateurs de banque</a></li>
+        <li class="nav-item"><a routerLink="/nos-services" routerLinkActive="active" class="nav-link">Services</a></li>
+        <li class="nav-item"><a routerLink="/contact-us" routerLinkActive="active" class="nav-link">Contact Us</a></li>
+      </ul>
+    </nav>
+  </div>
+  <!-- MAIN CONTENT -->
+  <div class="main-content">
 
-			<article class="user-card card-2">
-				<div class="icon">📝</div>
-				<h3>Chargé·e Crédit</h3>
-				<p class="desc">Accédez à l'espace des chargés crédits pour instruire et suivre les demandes de prêt.</p>
-				<button class="card-btn" (click)="navigateToChargeCredit()">Se connecter</button>
-			</article>
-		</div>
-	</div>
-</section>
+    <header class="header-logo">
+      <h1 class="company-name">NovaBank</h1>
+      <p class="company-tagline">Votre confiance, notre priorité.</p>
+    </header>
 
+    <section class="bank-user-section">
+      <div class="container">
+        <h2 class="section-title">Espace utilisateurs de la banque</h2>
+
+        <div class="cards-grid">
+          <article class="user-card card-1">
+            <div class="icon">👩‍💼</div>
+            <h3>Chargé·e Client</h3>
+            <p class="desc">Accédez à l'interface des chargés de clientèle pour gérer les rendez-vous.</p>
+            <button class="card-btn" (click)="navigateToChargeClient()">Se connecter</button>
+          </article>
+
+          <article class="user-card card-2">
+            <div class="icon">📝</div>
+            <h3>Chargé·e Crédit</h3>
+            <p class="desc">Accédez à l'espace des chargés crédits pour instruire et suivre les demandes de prêt.</p>
+            <button class="card-btn" (click)="navigateToChargeCredit()">Se connecter</button>
+          </article>
+        </div>
+      </div>
+    </section>
+
+  </div>
+</div>

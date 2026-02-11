@@ -2,13 +2,14 @@ import { Component, OnInit, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { DashboardInternaute } from "../dashboard-internaute/dashboard-internaute";
 import { AuthService } from '../../services/auth.service';
+import { RouterLink, RouterLinkActive } from '@angular/router';
+
 
 @Component({
   selector: 'app-espace-client',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, DashboardInternaute],
+  imports: [CommonModule, ReactiveFormsModule,RouterLink, RouterLinkActive],
   templateUrl: './espace-client.html',
   styleUrl: './espace-client.css',
 })
@@ -39,7 +40,7 @@ export class EspaceClient implements OnInit {
       next: (ok) => {
         if (ok) {
           this.router.navigate(['/portail-client']);
-          
+
         } else {
           alert('Username ou mot de passe incorrect');
         }

@@ -1,47 +1,47 @@
-
+/* ================== SECTION PRINCIPALE ================== */
 .login-section {
-  height: 100vh; /* prend toute la hauteur de l'écran */
   display: flex;
-  justify-content: center; /* centre horizontalement */
-  align-items: center;     /* centre verticalement */
-  padding: 20px;
-  background: linear-gradient(135deg, #2c475b, #1e3a8a);
+  justify-content: center;
+  align-items: center;
+  padding: 40px 20px;
+  background: linear-gradient(135deg, #2c475b, #f7f3f0);
+    border-radius: 20px;  min-height: calc(100vh - 80px); /* prend la hauteur disponible */
+  animation: fadeInUp 0.8s ease forwards;
 }
 
-/* Carte */
+/* ================== CARTE FORMULAIRE ================== */
 .login-container {
-  background: #f7f3f0; /* beige clair comme accueil */
-  padding: 40px 45px;
+  background: #f7f3f0; /* beige harmonisé */
+  padding: 50px 45px;
   border-radius: 20px;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 15px 35px rgba(0,0,0,0.18);
   width: 100%;
-  max-width: 420px;
+  max-width: 450px;
   border-top: 5px solid #1e3a8a;
-  animation: fadeIn 0.5s ease-in-out;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeInUp 0.8s ease forwards;
 }
 
 /* Animation */
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(15px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
-
-/* Titre */
+/* ================== TITRE ================== */
 .login-container h2 {
-  text-align: center;
-  color: #2c475b; /* bleu foncé principal */
-  margin-bottom: 25px;
-  font-weight: 600;
+  color: #2D475B;
+  margin-bottom: 30px;
+  font-weight: 700;
+  font-size: 1.8rem;
+  letter-spacing: 0.5px;
 }
 
-/* Formulaire */
+/* ================== FORMULAIRE ================== */
 .login-form {
   display: flex;
   flex-direction: column;
@@ -51,46 +51,54 @@
 .form-group {
   display: flex;
   flex-direction: column;
-  margin-bottom: 18px;
+  margin-bottom: 22px;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.form-group label {
+  margin-bottom: 6px;
+  font-weight: 500;
+  color: #2D475B;
 }
 
 .form-group input {
   width: 100%;
-  padding: 14px 15px;
-  border: 1px solid #ddd;
-  border-radius: 10px;
+  padding: 15px 18px;
+  border: 1.5px solid #ddd;
+  border-radius: 12px;
   font-size: 1em;
-  background-color: #ffffff; /* clair et doux */
-  transition: all 0.3s ease;
+  background-color: #ffffff;
+  transition: all 0.3s ease, box-shadow 0.3s ease;
 }
 
 .form-group input:focus {
+  border-color: #1e3a8a;
+  box-shadow: 0 0 12px rgba(30,58,138,0.3);
   outline: none;
-  border-color: #1e3a8a; /* bleu secondaire */
-  box-shadow: 0 0 6px rgba(30,58,138,0.3);
   background-color: #fff;
 }
 
-/* Boutons */
+/* ================== BOUTONS ================== */
 .login-btn, button {
-  background: linear-gradient(135deg, #1e3a8a, #2c475b); /* bleu harmonisé */
+  background: linear-gradient(135deg, #1e3a8a, #2D475B);
   color: white;
-  padding: 13px 20px;
+  padding: 14px 20px;
   border: none;
-  border-radius: 12px;
+  border-radius: 14px;
   cursor: pointer;
   width: 100%;
   font-size: 1.05em;
-  font-weight: 600;
+  font-weight: 700;
   margin-top: 12px;
   margin-bottom: 10px;
-  transition: all 0.3s ease;
+  transition: all 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .login-btn:hover, button:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 15px rgba(0,0,0,0.2);
-  background: linear-gradient(135deg, #2c475b, #1e3a8a); /* léger inverse du dégradé */
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.22);
+  background: linear-gradient(135deg, #2D475B, #1e3a8a);
 }
 
 .login-btn:disabled, button:disabled {
@@ -99,9 +107,37 @@
   box-shadow: none;
 }
 
-/* Responsive */
+/* ================== ERROR MESSAGE ================== */
+.error {
+  margin-top: 14px;
+  color: #A0522D;
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-align: center;
+  animation: shake 0.4s ease;
+}
+
+/* Shake animation pour warning */
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  20%, 60% { transform: translateX(-8px); }
+  40%, 80% { transform: translateX(8px); }
+}
+
+/* ================== RESPONSIVE ================== */
 @media (max-width: 480px) {
   .login-container {
-    padding: 25px;
+    padding: 30px 20px;
   }
+}
+.warning {
+  color: #ff4d4f;
+  font-size: 0.85em;
+  margin-top: 5px;
+  text-align: left;
+  animation: fadeIn 0.4s ease;
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
 }

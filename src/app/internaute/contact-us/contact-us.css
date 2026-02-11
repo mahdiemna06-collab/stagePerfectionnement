@@ -1,254 +1,263 @@
-/* 1. Mise en page principale */
+/* ===== GLOBAL ===== */
+body {
+  font-family: "Roboto", sans-serif;
+  background-color: #f9f9f9;
+  margin: 0;
+  color: #2c475b;
+}
+
+/* ===== CONTAINER ===== */
 .contact-container {
-    display: flex;
-    min-height: 100vh;
-    width: 100%;
+  display: flex;
+  min-height: 100vh;
+  width: 100%;
+  animation: fadeIn 0.8s ease-in-out;
 }
 
-/* Colonne de Gauche (Contenu Principal) */
+/* ===== MAIN CONTENT ===== */
 .main-content {
-    flex: 1;
-    background-color: #f7f3f0;
-    padding: 40px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    overflow-y: auto;
+  flex: 1;
+  background: linear-gradient(135deg, #ffffff, #f4f6f8);
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow-y: auto;
 }
 
-/* Colonne de Droite (Menu de Navigation) */
-.sidebar {
-    width: 300px;
-    background-color: #2c475b;
-    color: #ffffff;
-    padding-top: 50px;
-}
-
-/* 2. Style du Logo */
+/* ===== HEADER ===== */
 .header-logo {
-    text-align: center;
-    margin-bottom: 40px;
-}
-
-.logo-image {
-    width: 80px;
-    height: auto;
+  text-align: center;
+  margin-bottom: 30px;
+  animation: slideDown 0.8s ease;
 }
 
 .company-name {
-    font-size: 1.5em;
-    font-weight: bold;
-    color: #4a4a4a;
-    margin: 5px 0 2px 0;
+  font-size: 2rem;
+  font-weight: bold;
+  color: #212529;
 }
 
 .company-tagline {
-    font-size: 0.8em;
-    color: #a0522d;
-    letter-spacing: 3px;
-    margin: 0;
+  font-size: 1rem;
+  color: #a0522d;
+  letter-spacing: 2px;
 }
 
-/* 3. Section de Contact */
+/* ===== CONTACT SECTION ===== */
 .contact-section {
-    width: 100%;
-    max-width: 600px;
+  width: 100%;
+  max-width: 750px;
 }
 
 .contact-title {
-    font-size: 2em;
-    color: #4a4a4a;
-    margin-bottom: 10px;
-    text-align: center;
+  font-size: 2.2em;
+  color: #2c475b;
+  margin-bottom: 10px;
+  text-align: center;
 }
 
 .contact-intro {
-    text-align: center;
-    color: #666;
-    margin-bottom: 30px;
-    font-size: 1.1em;
+  text-align: center;
+  color: #555;
+  margin-bottom: 25px;
+  font-size: 1.1em;
 }
 
-/* 4. Chatbot */
+/* ===== CHATBOT ===== */
 .chatbot-container {
-    background-color: #ffffff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    display: flex;
-    flex-direction: column;
-    height: 600px;
+  background: #ffffff;
+  padding: 20px;
+  border-radius: 16px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column;
+  height: 650px;
+  animation: fadeInUp 1s ease;
 }
 
+/* ===== MESSAGES ===== */
 .chat-messages {
-    flex: 1;
-    overflow-y: auto;
-    margin-bottom: 20px;
-    padding: 15px;
-    background-color: #f9f9f9;
-    border-radius: 6px;
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
+  flex: 1;
+  overflow-y: auto;
+  margin-bottom: 15px;
+  padding: 15px;
+  background: linear-gradient(135deg,#f9f9f9,#eef2f5);
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
 }
 
 .message {
-    display: flex;
-    margin: 10px 0;
-    animation: slideIn 0.3s ease-in;
+  display: flex;
+  animation: slideIn 0.4s ease;
 }
 
-@keyframes slideIn {
-    from {
-        opacity: 0;
-        transform: translateY(10px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+.message p, .message ul {
+  margin: 0;
+  padding: 12px 15px;
+  border-radius: 15px;
+  max-width: 75%;
+  line-height: 1.5;
 }
 
-.message p {
-    margin: 0;
-    padding: 12px 15px;
-    border-radius: 8px;
-    max-width: 80%;
-    word-wrap: break-word;
-    line-height: 1.4;
+/* BOT */
+.bot-message {
+  justify-content: flex-start;
 }
 
-.message ul {
-    margin: 8px 0;
-    padding-left: 20px;
+.bot-message p,
+.bot-message ul {
+  background: #e8eef3;
+  color: #333;
+  border-top-left-radius: 0;
 }
 
-.message li {
-    margin: 5px 0;
-}
-
+/* USER */
 .user-message {
-    justify-content: flex-end;
+  justify-content: flex-end;
 }
 
 .user-message p {
-    background-color: #a0522d;
-    color: #ffffff;
+  background: linear-gradient(135deg,#a0522d,#8b4423);
+  color: white;
+  border-top-right-radius: 0;
 }
 
-.bot-message {
-    justify-content: flex-start;
-}
-
-.bot-message p {
-    background-color: #e8e8e8;
-    color: #333;
-}
-
-.bot-message ul {
-    background-color: #e8e8e8;
-    color: #333;
-    padding: 10px 15px;
-    border-radius: 8px;
-}
-
-/* Boutons rapides */
+/* ===== QUICK BUTTONS ===== */
 .quick-buttons {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 10px;
-    margin-bottom: 15px;
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  gap: 10px;
+  margin-bottom: 12px;
 }
 
 .quick-btn {
-    padding: 10px;
-    background-color: #e8e8e8;
-    border: 1px solid #ddd;
-    border-radius: 6px;
-    cursor: pointer;
-    font-size: 0.95em;
-    color: #4a4a4a;
-    transition: all 0.3s;
+  padding: 10px;
+  background: #f1f1f1;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 0.9em;
+  transition: all 0.3s ease;
 }
 
 .quick-btn:hover {
-    background-color: #a0522d;
-    color: #ffffff;
-    border-color: #a0522d;
+  background: #2c475b;
+  color: white;
+  transform: translateY(-3px) scale(1.02);
 }
 
-/* Zone d'entrée */
+/* ===== INPUT AREA ===== */
 .chat-input-area {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
 .input-group {
-    display: flex;
-    gap: 10px;
+  display: flex;
+  gap: 10px;
 }
 
 .chat-input {
-    flex: 1;
-    padding: 12px;
-    border: 1px solid #ddd;
-    border-radius: 6px;
-    font-size: 1em;
-    font-family: inherit;
-    transition: border-color 0.3s;
+  flex: 1;
+  padding: 12px 15px;
+  border: 1px solid #ccc;
+  border-radius: 25px;
+  font-size: 1em;
+  transition: 0.3s;
 }
 
 .chat-input:focus {
-    outline: none;
-    border-color: #a0522d;
-    box-shadow: 0 0 5px rgba(160, 82, 45, 0.2);
+  outline: none;
+  border-color: #2c475b;
+  box-shadow: 0 0 8px rgba(44,71,91,0.3);
 }
 
 .send-btn {
-    padding: 12px 20px;
-    background-color: #a0522d;
-    color: #ffffff;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    font-weight: 600;
-    transition: background-color 0.3s;
+  padding: 12px 22px;
+  background: linear-gradient(135deg,#2c475b,#0c63e3);
+  color: white;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.3s;
 }
 
 .send-btn:hover {
-    background-color: #8b4423;
+  transform: scale(1.05);
+  box-shadow: 0 5px 15px rgba(12,99,227,0.4);
 }
 
-.send-btn:active {
-    transform: scale(0.98);
+/* ===== SIDEBAR (same as Accueil) ===== */
+.sidebar {
+  width: 300px;
+  background-color: #2c475b;
+  color: #ffffff;
+  padding-top: 50px;
 }
 
-/* 5. Style de la Navigation */
 .nav-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
 .nav-item {
-    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  border-bottom: 1px solid rgba(255,255,255,0.2);
 }
 
 .nav-link {
-    display: block;
-    padding: 15px 30px;
-    color: #ffffff;
-    text-decoration: none;
-    font-size: 1.1em;
-    transition: background-color 0.3s;
+  display: block;
+  padding: 15px 30px;
+  color: white;
+  text-decoration: none;
+  font-size: 1.1em;
+  transition: background-color 0.3s ease, padding-left 0.3s ease;
 }
 
 .nav-link:hover {
-    background-color: rgba(255, 255, 255, 0.1);
+  background-color: rgba(255,255,255,0.1);
+  padding-left: 40px;
 }
 
 .nav-link.active {
-    font-weight: bold;
-    color: white;
+  font-weight: bold;
+  background-color: rgba(255,255,255,0.15);
+  border-left: 4px solid #0c63e3;
+}
+
+/* ===== ANIMATIONS ===== */
+@keyframes fadeIn {
+  from {opacity:0;}
+  to {opacity:1;}
+}
+
+@keyframes slideIn {
+  from {opacity:0; transform: translateY(10px);}
+  to {opacity:1; transform: translateY(0);}
+}
+
+@keyframes slideDown {
+  from {opacity:0; transform: translateY(-20px);}
+  to {opacity:1; transform: translateY(0);}
+}
+
+@keyframes fadeInUp {
+  from {opacity:0; transform: translateY(30px);}
+  to {opacity:1; transform: translateY(0);}
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 992px) {
+  .contact-container {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+  }
 }

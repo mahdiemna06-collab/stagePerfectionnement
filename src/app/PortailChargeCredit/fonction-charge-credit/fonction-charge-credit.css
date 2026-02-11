@@ -94,3 +94,32 @@
   font-style: italic;
   color: #4a4a4a;
 }
+.btn-icon {
+  width: 40px;
+  height: 40px;
+  border: none;
+  border-radius: 50%;
+  font-size: 1.2rem;
+  font-weight: bold;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  margin-right: 6px;
+}
+
+.btn-icon.approve {
+  background-color: #45a049; /* vert */
+  color: white;
+}
+
+.btn-icon.refuse {
+  background-color: #ff4d4f; /* rouge */
+  color: white;
+}
+
+.btn-icon:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+}

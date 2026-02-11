@@ -36,18 +36,21 @@
 
       <td>
         <button
-          *ngIf="demande.statutCredit === 'EN_ATTENTE'"
-          (click)="approuverDemande(demande.id)"
-          class="btn-approve">
-          Approuver
-        </button>
+  *ngIf="demande.statutCredit === 'EN_ATTENTE'"
+  (click)="approuverDemande(demande.id)"
+  class="btn-icon approve"
+  title="Approuver">
+  ✔
+</button>
 
-        <button
-          *ngIf="demande.statutCredit === 'EN_ATTENTE'"
-          (click)="refuserDemande(demande.id)"
-          class="btn-refuse">
-          Refuser
-        </button>
+<button
+  *ngIf="demande.statutCredit === 'EN_ATTENTE'"
+  (click)="refuserDemande(demande.id)"
+  class="btn-icon refuse"
+  title="Refuser">
+  ✖
+</button>
+
 
         <span *ngIf="demande.statutCredit !== 'EN_ATTENTE'">
           {{ demande.statutCredit }}

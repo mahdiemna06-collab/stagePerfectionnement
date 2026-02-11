@@ -1,99 +1,208 @@
-/* 1. Mise en page principale (Grid ou Flexbox) */
+/* ===== GLOBAL ===== */
+body {
+  font-family: "Roboto", sans-serif;
+  background-color: #f9f9f9;
+  margin: 0;
+  color: #2c475b;
+}
+
+/* ===== CONTAINER PRINCIPAL ===== */
 .accueil-container {
-    display: flex; /* Utiliser Flexbox pour les deux colonnes */
-    min-height: 100vh; /* S'assurer que le conteneur prend toute la hauteur de la fenêtre */
-    width: 100%;
+  display: flex;
+  min-height: 100vh;
+  width: 100%;
+  flex-direction: row-reverse;
 }
 
-/* Colonne de Gauche (Principale) */
+/* ===== CONTENU PRINCIPAL ===== */
 .main-content {
-    flex: 1; /* Prend l'espace restant */
-    background-color: #f7f3f0; /* Couleur très claire / beige */
-    padding: 40px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  flex: 1;
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
 }
 
-/* Colonne de Droite (Menu de Navigation) */
-.sidebar {
-    width: 300px; /* Taille fixe, ajustez au besoin */
-    background-color: #2c475b; /* Couleur bleu foncé/ardoise */
-    color: #ffffff;
-    padding-top: 50px;
+/* Centre le contenu (icône + titre + slogan) */
+.center-content {
+  text-align: center;
 }
 
-/* 2. Style du Logo */
-.header-logo {
-    text-align: center;
-    margin-bottom: 60px;
+/* Icône Digital Banking */
+.digital-icon {
+  font-size: 80px;
+  color: #2c475b;
+  margin-bottom: 20px;
+  animation: fadeIn 1s ease-in-out;
 }
-.logo-image {
-    width: 80px; /* Ajustez la taille du logo */
-    height: auto;
-}
+
+/* Nom de la société */
 .company-name {
-    font-size: 1.5em;
-    font-weight: bold;
-    color: #4a4a4a;
-    margin: 5px 0 2px 0;
+  font-size: 2.5rem;
+  font-weight: bold;
+  color:  #2c475b;
+  margin: 10px 0 5px 0;
 }
+
+/* Slogan */
 .company-tagline {
-    font-size: 0.8em;
-    color: #a0522d; /* Couleur marron/rougeâtre pour le tag */
-    letter-spacing: 3px;
-    margin: 0;
+  font-size: 1.2rem;
+  color:#a0522d;
+  margin: 0;
 }
 
-/* 3. Style de l'Image Incurvée */
-.image-section {
-    width: 100%;
-    max-width: 500px; /* Limite la largeur de la section image */
-    padding: 20px;
+/* ===== SIDEBAR ===== */
+.sidebar {
+  width: 300px;
+  background-color: #2c475b;
+  color: #ffffff;
+  padding-top: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
 
-.image-wrapper {
-    /* Clé pour l'effet de l'arrondi en bas à gauche */
-    overflow: hidden;
-    border-radius: 0 50px 0 50px; /* Haut-Gauche, Haut-Droite, Bas-Droite, Bas-Gauche */
-    /* Utilisez 50% ou une valeur plus élevée si vous voulez un arrondi plus prononcé */
-}
-
-.banking-image {
-    width: 100%;
-    height: auto;
-    display: block;
-    /* Assurez-vous que l'image elle-même n'est pas distordue */
-}
-
-/* 4. Style de la Navigation */
+/* ===== NAVIGATION ===== */
 .nav-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  width: 100%;
 }
 
 .nav-item {
-    border-bottom: 1px solid rgba(255, 255, 255, 0.2); /* Ligne de séparation */
+  width: 100%;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .nav-link {
-    display: block;
-    padding: 15px 30px;
-    color: #ffffff;
-    text-decoration: none;
-    font-size: 1.1em;
-    transition: background-color 0.3s;
+  display: block;
+  padding: 15px 30px;
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 1.1em;
+  transition: background-color 0.3s ease, padding-left 0.3s ease;
 }
 
 .nav-link:hover {
-    background-color: rgba(255, 255, 255, 0.1); /* Effet au survol */
+  background-color: rgba(255, 255, 255, 0.1);
+  padding-left: 40px; /* effet mouvement */
 }
 
 .nav-link.active {
-    font-weight: bold;
-    color: white;
+  font-weight: bold;
+  background-color: rgba(255, 255, 255, 0.15);
+  border-left: 4px solid #0c63e3;
 }
-.center-content{
-  padding-top:300px ;
+
+/* ===== ANIMATIONS ===== */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 992px) {
+  .accueil-container {
+    flex-direction: column;
+  }
+  .sidebar {
+    width: 100%;
+    padding-top: 20px;
+  }
+  .nav-link {
+    padding: 12px 20px;
+  }
+}
+
+/* ===== FOOTER ===== */
+.site-footer {
+  background-color: #2c475b;
+  color: #ffffff;
+  padding: 40px 20px 20px 20px;
+  font-family: "Roboto", sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  animation: fadeIn 1s ease-in-out;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 1200px;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
+.footer-left h3 {
+  font-size: 1.5rem;
+  margin-bottom: 5px;
+  color: #ffffff;
+}
+
+.footer-left p {
+  font-size: 0.95rem;
+  color: #d1d1d1;
+}
+
+.footer-right {
+  display: flex;
+  align-items: center;
+}
+
+.footer-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  gap: 20px;
+}
+
+.footer-links li a {
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease, transform 0.2s ease;
+}
+
+.footer-links li a:hover {
+  color: #0c63e3;
+  transform: translateY(-2px);
+}
+
+.footer-bottom {
+  border-top: 1px solid rgba(255,255,255,0.2);
+  padding-top: 15px;
+  font-size: 0.9rem;
+  color: #d1d1d1;
+  text-align: center;
+  width: 100%;
+}
+
+/* ===== RESPONSIVE FOOTER ===== */
+@media (max-width: 768px) {
+  .footer-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+  .footer-right {
+    justify-content: center;
+  }
+  .footer-links {
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+  }
+}
+

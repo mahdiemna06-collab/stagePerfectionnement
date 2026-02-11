@@ -1,84 +1,120 @@
-<div class="creer-compte-container">
-  <h2>Créer un compte Client</h2>
+<div class="client-area-container">
 
-  <form (ngSubmit)="onSubmit()" #clientForm="ngForm">
 
-    <div class="form-group">
-      <label>Nom</label>
-      <input type="text" [(ngModel)]="client.nom" name="nom" required />
+
+  <!-- MAIN CONTENT -->
+  <div class="main-content">
+
+    <header class="header-logo">
+      <h1 class="company-name">NovaBank</h1>
+      <p class="company-tagline">Votre confiance, notre priorité.</p>
+    </header>
+
+    <div class="creer-compte-section">
+
+      <div class="creer-compte-container">
+
+        <h2>Créer un compte Client</h2>
+
+        <form (ngSubmit)="onSubmit()" #clientForm="ngForm">
+
+          <div class="form-group">
+            <label>Nom</label>
+            <input type="text" [(ngModel)]="client.nom" name="nom" required />
+            <div class="warning" *ngIf="clientForm.submitted && !client.nom">Le nom est requis</div>
+          </div>
+
+          <div class="form-group">
+            <label>Prénom</label>
+            <input type="text" [(ngModel)]="client.prenom" name="prenom" required />
+            <div class="warning" *ngIf="clientForm.submitted && !client.prenom">Le prénom est requis</div>
+          </div>
+
+          <div class="form-group">
+            <label>Username</label>
+            <input type="text" [(ngModel)]="client.username" name="username" required />
+            <div class="warning" *ngIf="clientForm.submitted && !client.username">Le username est requis</div>
+          </div>
+
+          <div class="form-group">
+            <label>Mot de passe</label>
+            <input type="password" [(ngModel)]="client.password" name="password" required />
+            <div class="warning" *ngIf="clientForm.submitted && !client.password">Le mot de passe est requis</div>
+          </div>
+
+          <div class="form-group">
+            <label>Email</label>
+            <input type="email" [(ngModel)]="client.email" name="email" required />
+            <div class="warning" *ngIf="clientForm.submitted && !client.email">L'email est requis</div>
+          </div>
+
+          <div class="form-group">
+            <label>Téléphone</label>
+            <input type="text" [(ngModel)]="client.telephone" name="telephone" required />
+            <div class="warning" *ngIf="clientForm.submitted && !client.telephone">Le téléphone est requis</div>
+          </div>
+
+          <div class="form-group">
+            <label>CIN</label>
+            <input type="text" [(ngModel)]="client.cin" name="cin" required />
+            <div class="warning" *ngIf="clientForm.submitted && !client.cin">Le CIN est requis</div>
+          </div>
+
+          <div class="form-group">
+            <label>Date de naissance</label>
+            <input type="date" [(ngModel)]="client.dateNaissance" name="dateNaissance" required />
+            <div class="warning" *ngIf="clientForm.submitted && !client.dateNaissance">La date de naissance est requise</div>
+          </div>
+
+          <div class="form-group">
+            <label>Genre</label>
+            <select [(ngModel)]="client.gender" name="gender" required>
+              <option value="">Sélectionnez</option>
+              <option *ngFor="let g of genders" [value]="g">{{ g }}</option>
+            </select>
+            <div class="warning" *ngIf="clientForm.submitted && !client.gender">Le genre est requis</div>
+          </div>
+
+          <div class="form-group">
+            <label>Gouvernorat</label>
+            <select [(ngModel)]="client.gouvernorat" name="gouvernorat" required>
+              <option value="">Sélectionnez</option>
+              <option *ngFor="let g of gouvernorats" [value]="g">{{ g }}</option>
+            </select>
+            <div class="warning" *ngIf="clientForm.submitted && !client.gouvernorat">Le gouvernorat est requis</div>
+          </div>
+
+          <div class="form-group">
+            <label>Nationalité</label>
+            <select [(ngModel)]="client.nationalite" name="nationalite" required>
+              <option value="">Sélectionnez</option>
+              <option *ngFor="let n of nationalites" [value]="n">{{ n }}</option>
+            </select>
+            <div class="warning" *ngIf="clientForm.submitted && !client.nationalite">La nationalité est requise</div>
+          </div>
+
+          <div class="form-group">
+            <label>Occupation</label>
+            <input type="text" [(ngModel)]="client.occupation" name="occupation" required />
+            <div class="warning" *ngIf="clientForm.submitted && !client.occupation">L'occupation est requise</div>
+          </div>
+
+          <div class="form-group">
+            <label>Agence</label>
+            <select [(ngModel)]="client.agence" name="agence" required>
+              <option value="">Sélectionnez</option>
+              <option *ngFor="let agence of agences" [ngValue]="agence">{{ agence.nom }}</option>
+            </select>
+            <div class="warning" *ngIf="clientForm.submitted && !client.agence">L'agence est requise</div>
+          </div>
+
+          <button type="submit">Créer le compte</button>
+          <button type="button" (click)="retour()">Déjà un compte ?</button>
+
+        </form>
+      </div>
+
     </div>
 
-    <div class="form-group">
-      <label>Prénom</label>
-      <input type="text" [(ngModel)]="client.prenom" name="prenom" required />
-    </div>
-
-    <div class="form-group">
-      <label>Username</label>
-      <input type="text" [(ngModel)]="client.username" name="username" required />
-    </div>
-
-    <div class="form-group">
-      <label>Mot de passe</label>
-      <input type="password" [(ngModel)]="client.password" name="password" required />
-    </div>
-
-    <div class="form-group">
-      <label>Email</label>
-      <input type="email" [(ngModel)]="client.email" name="email" required />
-    </div>
-
-    <div class="form-group">
-      <label>Téléphone</label>
-      <input type="text" [(ngModel)]="client.telephone" name="telephone" required />
-    </div>
-
-    <div class="form-group">
-      <label>CIN</label>
-      <input type="text" [(ngModel)]="client.cin" name="cin" required />
-    </div>
-
-    <div class="form-group">
-      <label>Date de naissance</label>
-      <input type="date" [(ngModel)]="client.dateNaissance" name="dateNaissance" required />
-    </div>
-
-    <div class="form-group">
-      <label>Genre</label>
-      <select [(ngModel)]="client.gender" name="gender" required>
-        <option *ngFor="let g of genders" [value]="g">{{ g }}</option>
-      </select>
-    </div>
-
-    <div class="form-group">
-      <label>Gouvernorat</label>
-      <select [(ngModel)]="client.gouvernorat" name="gouvernorat" required>
-        <option *ngFor="let g of gouvernorats" [value]="g">{{ g }}</option>
-      </select>
-    </div>
-
-    <div class="form-group">
-      <label>Nationalité</label>
-      <select [(ngModel)]="client.nationalite" name="nationalite" required>
-        <option *ngFor="let n of nationalites" [value]="n">{{ n }}</option>
-      </select>
-    </div>
-
-     <div class="form-group">
-      <label>Occupation</label>
-      <input type="text" [(ngModel)]="client.occupation" name="occupation" required />
-    </div>
-
-
-    <div class="form-group">
-      <label>Agence</label>
-      <select [(ngModel)]="client.agence" name="agence" required>
-        <option *ngFor="let agence of agences" [ngValue]="agence">{{ agence.nom }}</option>
-      </select>
-    </div>
-
-    <button type="submit">Créer le compte</button>
-    <button (click)="retour()">Avez-vous déja un compte?</button>
-  </form>
+  </div>
 </div>
-

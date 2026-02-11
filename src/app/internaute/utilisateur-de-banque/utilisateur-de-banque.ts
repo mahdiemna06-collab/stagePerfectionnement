@@ -1,11 +1,10 @@
 import { Component, inject } from '@angular/core';
-import { Router } from '@angular/router';
-import { DashboardInternaute } from "../dashboard-internaute/dashboard-internaute";
+import { Router, RouterLink, RouterLinkActive } from '@angular/router';
 
 @Component({
   selector: 'app-utilisateur-de-banque',
   standalone:true,
-  imports: [DashboardInternaute],
+  imports: [RouterLinkActive, RouterLink],
   templateUrl: './utilisateur-de-banque.html',
   styleUrl: './utilisateur-de-banque.css',
 })

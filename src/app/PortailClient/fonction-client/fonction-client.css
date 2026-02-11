@@ -1,39 +1,60 @@
 /* ================== PORTAIL CLIENT ================== */
 .portail-client {
-  background: linear-gradient(to right, #f7f3f0, #e2ebf0); /* beige clair + dégradé doux */
+  background: linear-gradient(to right, #f7f3f0, #e2ebf0);
   min-height: 100vh;
   padding-bottom: 40px;
+  animation: fadeInBg 1s ease forwards;
+}
+
+@keyframes fadeInBg {
+  from { background-position: -200px 0; }
+  to { background-position: 0 0; }
 }
 
 /* ===== Barre profil ===== */
 .profile-bar {
-  background: #2c475b; /* bleu foncé harmonisé */
+  background: #2c475b;
   color: white;
   padding: 20px 40px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   border-radius: 0 0 20px 20px;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.12);
+  transform: translateY(-20px);
+  animation: slideDown 0.6s ease forwards;
+}
+
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-20px);}
+  to { opacity: 1; transform: translateY(0);}
 }
 
 .profile-actions button {
   margin-left: 10px;
   padding: 10px 15px;
-  border-radius: 8px;
+  border-radius: 10px;
   border: none;
   cursor: pointer;
-  transition: all 0.3s ease;
+  font-weight: 600;
+  transition: all 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
 }
+
 .profile-actions button.logout-btn {
-  background: #e53935; /* rouge/rougeâtre comme précédemment */
+  background: #e53935;
 }
 .profile-actions button.logout-btn:hover {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.25);
   background: #c62828;
 }
+
 .profile-actions button.edit-btn {
-  background: #1e3a8a; /* bleu secondaire */
+  background: #1e3a8a;
 }
 .profile-actions button.edit-btn:hover {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.25);
   background: #2c475b;
 }
 
@@ -41,10 +62,18 @@
 .container {
   margin: 40px auto;
   max-width: 900px;
-  background: #f7f3f0; /* beige clair */
+  background: #f7f3f0;
   padding: 30px;
   border-radius: 20px;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+  transform: translateY(20px);
+  opacity: 0;
+  animation: fadeInUp 0.8s ease forwards;
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 /* ===== Formulaire rendez-vous ===== */
@@ -53,79 +82,86 @@
   width: 100%;
   padding: 14px 15px;
   margin: 10px 0;
-  border-radius: 10px;
-  border: 1px solid #ddd;
+  border-radius: 12px;
+  border: 1.5px solid #ddd;
   box-sizing: border-box;
   font-size: 1em;
-  transition: all 0.3s ease;
+  transition: all 0.3s ease, box-shadow 0.3s ease, transform 0.2s ease;
 }
+
 .appointment-form input:focus,
 .appointment-form textarea:focus {
   border-color: #1e3a8a;
-  box-shadow: 0 0 6px rgba(30,58,138,0.3);
+  box-shadow: 0 0 12px rgba(30,58,138,0.35);
+  outline: none;
+  transform: scale(1.02);
   background-color: #fff;
 }
 
-.appointment-form button {
+/* Boutons */
+.appointment-form button, button {
   width: 100%;
-  background: linear-gradient(135deg, #1e3a8a, #2c475b); /* bleu harmonisé */
+  background: linear-gradient(135deg, #1e3a8a, #2c475b);
   color: white;
   padding: 14px;
-  border-radius: 12px;
+  border-radius: 14px;
   border: none;
   font-size: 1.05em;
+  font-weight: 700;
   cursor: pointer;
   margin-top: 12px;
-  transition: all 0.3s ease;
+  transition: all 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
 }
-.appointment-form button:hover {
+
+button:hover, .appointment-form button:hover {
+  transform: translateY(-4px) scale(1.03);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.25);
   background: linear-gradient(135deg, #2c475b, #1e3a8a);
 }
-.appointment-form button:disabled {
+
+button:disabled, .appointment-form button:disabled {
   background: #a9a9a9;
   cursor: not-allowed;
+  box-shadow: none;
 }
 
 /* ===== Tableau rendez-vous ===== */
 .appointments-section table {
   width: 100%;
   border-collapse: collapse;
+  transition: transform 0.3s ease;
 }
+
+.appointments-section tr:hover {
+  transform: translateX(5px);
+  background-color: rgba(45,71,91,0.05);
+}
+
 .appointments-section th,
 .appointments-section td {
-  padding: 12px;
+  padding: 14px;
   border-bottom: 1px solid #ccc;
   text-align: center;
+  transition: all 0.3s ease;
 }
+
 .appointments-section th {
   background-color: #f5f5f5;
   font-weight: bold;
 }
 
-
-/* Bouton */button{
-background: linear-gradient(135deg, #1e3a8a, #2c475b); /* bleu harmonisé */
-  color: white;
-  padding: 13px 20px;
-  border: none;
-  border-radius: 12px;
-  cursor: pointer;
-  width: 100%;
-  font-size: 1.05em;
-  font-weight: 600;
-  margin-top: 12px;
-  margin-bottom: 10px;
-  transition: all 0.3s ease;
+/* Ajout petite animation fade sur tableau */
+.appointments-section tbody tr {
+  opacity: 0;
+  transform: translateY(10px);
+  animation: fadeInRow 0.5s forwards;
 }
 
- button:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 15px rgba(0,0,0,0.2);
-  background: linear-gradient(135deg, #2c475b, #1e3a8a); /* léger inverse du dégradé */
-}
+.appointments-section tbody tr:nth-child(1) { animation-delay: 0.05s; }
+.appointments-section tbody tr:nth-child(2) { animation-delay: 0.1s; }
+.appointments-section tbody tr:nth-child(3) { animation-delay: 0.15s; }
 
-button:disabled {
-  background: #a9a9a9;
-  cursor: not-allowed;
-  box-shadow: none;
+@keyframes fadeInRow {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
 }
